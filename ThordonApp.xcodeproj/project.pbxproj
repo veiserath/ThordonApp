@@ -3,29 +3,42 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0F65122537580E00475FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F65112537580D00475FCE /* Main.storyboard */; };
 		E70CAE0D2501127E00D5A8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE0C2501127E00D5A8B9 /* AppDelegate.swift */; };
 		E70CAE0F2501127E00D5A8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE0E2501127E00D5A8B9 /* SceneDelegate.swift */; };
-		E70CAE112501127E00D5A8B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE102501127E00D5A8B9 /* ViewController.swift */; };
-		E70CAE142501127E00D5A8B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70CAE122501127E00D5A8B9 /* Main.storyboard */; };
+		E70CAE112501127E00D5A8B9 /* NewCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE102501127E00D5A8B9 /* NewCalculationViewController.swift */; };
 		E70CAE172501127E00D5A8B9 /* ThordonApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE152501127E00D5A8B9 /* ThordonApp.xcdatamodeld */; };
 		E70CAE192501128100D5A8B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E70CAE182501128100D5A8B9 /* Assets.xcassets */; };
 		E70CAE1C2501128100D5A8B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E70CAE1A2501128100D5A8B9 /* LaunchScreen.storyboard */; };
+		E74AC55C2516175C00F280FD /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = E74AC55B2516175C00F280FD /* Socket */; };
+		E74B8EF7250252AB00B847CA /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B8EF6250252AB00B847CA /* CoreDataManager.swift */; };
+		E74B8F01250298A000B847CA /* GeneralInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74B8F00250298A000B847CA /* GeneralInformationViewController.swift */; };
+		E76FC7662505A4320074A7C2 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FC7652505A4320074A7C2 /* ResultsViewController.swift */; };
+		E79033E4250981C5000D72CE /* PDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79033E3250981C5000D72CE /* PDFViewController.swift */; };
+		E79033E6250A2BAD000D72CE /* results.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E79033E5250A2BAC000D72CE /* results.pdf */; };
+		E7B8922B252CBDF900EE03DE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B8922A252CBDF900EE03DE /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A0F65112537580D00475FCE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E70CAE092501127E00D5A8B9 /* ThordonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThordonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70CAE0C2501127E00D5A8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E70CAE0E2501127E00D5A8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E70CAE102501127E00D5A8B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E70CAE132501127E00D5A8B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E70CAE102501127E00D5A8B9 /* NewCalculationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalculationViewController.swift; sourceTree = "<group>"; };
 		E70CAE162501127E00D5A8B9 /* ThordonApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThordonApp.xcdatamodel; sourceTree = "<group>"; };
 		E70CAE182501128100D5A8B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E70CAE1B2501128100D5A8B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E70CAE1D2501128100D5A8B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E74B8EF6250252AB00B847CA /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		E74B8F00250298A000B847CA /* GeneralInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInformationViewController.swift; sourceTree = "<group>"; };
+		E76FC7652505A4320074A7C2 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		E79033E3250981C5000D72CE /* PDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewController.swift; sourceTree = "<group>"; };
+		E79033E5250A2BAC000D72CE /* results.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = results.pdf; sourceTree = "<group>"; };
+		E7B8922A252CBDF900EE03DE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E74AC55C2516175C00F280FD /* Socket in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +56,7 @@
 		E70CAE002501127E00D5A8B9 = {
 			isa = PBXGroup;
 			children = (
+				E79033E5250A2BAC000D72CE /* results.pdf */,
 				E70CAE0B2501127E00D5A8B9 /* ThordonApp */,
 				E70CAE0A2501127E00D5A8B9 /* Products */,
 			);
@@ -58,16 +73,37 @@
 		E70CAE0B2501127E00D5A8B9 /* ThordonApp */ = {
 			isa = PBXGroup;
 			children = (
+				E74B8EF52502520600B847CA /* Core Data Manager */,
+				E74B8F02250298B500B847CA /* ViewControllers */,
 				E70CAE0C2501127E00D5A8B9 /* AppDelegate.swift */,
 				E70CAE0E2501127E00D5A8B9 /* SceneDelegate.swift */,
-				E70CAE102501127E00D5A8B9 /* ViewController.swift */,
-				E70CAE122501127E00D5A8B9 /* Main.storyboard */,
+				E7B8922A252CBDF900EE03DE /* NetworkManager.swift */,
 				E70CAE182501128100D5A8B9 /* Assets.xcassets */,
+				7A0F65112537580D00475FCE /* Main.storyboard */,
 				E70CAE1A2501128100D5A8B9 /* LaunchScreen.storyboard */,
 				E70CAE1D2501128100D5A8B9 /* Info.plist */,
-				E70CAE152501127E00D5A8B9 /* ThordonApp.xcdatamodeld */,
 			);
 			path = ThordonApp;
+			sourceTree = "<group>";
+		};
+		E74B8EF52502520600B847CA /* Core Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E74B8EF6250252AB00B847CA /* CoreDataManager.swift */,
+				E70CAE152501127E00D5A8B9 /* ThordonApp.xcdatamodeld */,
+			);
+			path = "Core Data Manager";
+			sourceTree = "<group>";
+		};
+		E74B8F02250298B500B847CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E70CAE102501127E00D5A8B9 /* NewCalculationViewController.swift */,
+				E76FC7652505A4320074A7C2 /* ResultsViewController.swift */,
+				E79033E3250981C5000D72CE /* PDFViewController.swift */,
+				E74B8F00250298A000B847CA /* GeneralInformationViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +122,9 @@
 			dependencies = (
 			);
 			name = ThordonApp;
+			packageProductDependencies = (
+				E74AC55B2516175C00F280FD /* Socket */,
+			);
 			productName = ThordonApp;
 			productReference = E70CAE092501127E00D5A8B9 /* ThordonApp.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +153,9 @@
 				Base,
 			);
 			mainGroup = E70CAE002501127E00D5A8B9;
+			packageReferences = (
+				E74AC55A2516175C00F280FD /* XCRemoteSwiftPackageReference "BlueSocket" */,
+			);
 			productRefGroup = E70CAE0A2501127E00D5A8B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -128,9 +170,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79033E6250A2BAD000D72CE /* results.pdf in Resources */,
+				7A0F65122537580E00475FCE /* Main.storyboard in Resources */,
 				E70CAE1C2501128100D5A8B9 /* LaunchScreen.storyboard in Resources */,
 				E70CAE192501128100D5A8B9 /* Assets.xcassets in Resources */,
-				E70CAE142501127E00D5A8B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +184,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E70CAE112501127E00D5A8B9 /* ViewController.swift in Sources */,
+				E70CAE112501127E00D5A8B9 /* NewCalculationViewController.swift in Sources */,
+				E74B8F01250298A000B847CA /* GeneralInformationViewController.swift in Sources */,
 				E70CAE0D2501127E00D5A8B9 /* AppDelegate.swift in Sources */,
+				E79033E4250981C5000D72CE /* PDFViewController.swift in Sources */,
+				E76FC7662505A4320074A7C2 /* ResultsViewController.swift in Sources */,
 				E70CAE172501127E00D5A8B9 /* ThordonApp.xcdatamodeld in Sources */,
 				E70CAE0F2501127E00D5A8B9 /* SceneDelegate.swift in Sources */,
+				E7B8922B252CBDF900EE03DE /* NetworkManager.swift in Sources */,
+				E74B8EF7250252AB00B847CA /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E70CAE122501127E00D5A8B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E70CAE132501127E00D5A8B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E70CAE1A2501128100D5A8B9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -342,6 +382,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E74AC55A2516175C00F280FD /* XCRemoteSwiftPackageReference "BlueSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/BlueSocket";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.52;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E74AC55B2516175C00F280FD /* Socket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E74AC55A2516175C00F280FD /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = Socket;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E70CAE152501127E00D5A8B9 /* ThordonApp.xcdatamodeld */ = {

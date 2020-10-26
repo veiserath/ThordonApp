@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="GeneralInformation" representedClassName="GeneralInformation" syncable="YES" codeGenerationType="class">
+        <attribute name="calculatedBy" optional="YES" attributeType="String"/>
+        <attribute name="checkedBy" optional="YES" attributeType="String"/>
+        <attribute name="comments" optional="YES" attributeType="String"/>
+        <attribute name="customer" optional="YES" attributeType="String"/>
+        <attribute name="drawingNumber" optional="YES" attributeType="String"/>
+        <attribute name="mrpNumber" optional="YES" attributeType="String"/>
+        <attribute name="projectReference" optional="YES" attributeType="String"/>
+        <attribute name="thordonDistributor" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="GeneralInformation" positionX="-63" positionY="-18" width="128" height="163"/>
+    </elements>
+</model>
