@@ -25,27 +25,27 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            try mySocket!.connect(to: "localhost", port: 2222)
+            try mySocket!.connect(to: "25.94.234.108", port: 2137)
             
         }
         catch {
             print("didn't connect")
         }
     }
-    func receiveMessage(){
+    func receiveMessage() -> String? {
         do {
             receivedMessage = try mySocket!.readString()!
-            print(receivedMessage)
+            return receivedMessage
         }
         catch {
             print("didn't receive message")
         }
-        
+        return nil
     }
     func sendMessage(message:String){
         do {
+//            connect()
             try mySocket?.write(from: message)
-            
         }
         catch {
             print("didn't send the message")
@@ -56,4 +56,3 @@ class NetworkManager: NSObject {
         mySocket?.close()
     }
 }
-

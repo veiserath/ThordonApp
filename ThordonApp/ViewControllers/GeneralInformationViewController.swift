@@ -110,4 +110,17 @@ class GeneralInformationViewController: UIViewController, UITextFieldDelegate {
         mrpNumber.addTarget(self, action: #selector(GeneralInformationViewController.textFieldDidChange(_:)), for: .editingChanged)
     }
     
+    
+    @IBAction func logoutTapped(_ sender: UIButton) {
+        // ...
+               // after user has successfully logged out
+         
+           let storyboard = UIStoryboard(name: "Main", bundle: nil)
+           let loginNavController = storyboard.instantiateViewController(identifier: "LoginNavigationController")
+
+           (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(loginNavController)
+        
+    }
+    
+    
 }
