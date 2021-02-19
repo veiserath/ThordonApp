@@ -13,9 +13,10 @@ class PDFViewController: UIViewController, Encodable {
         
     let filename:String = "results"
     
+
     @IBAction func shareButtonAction(_ sender: Any) {
         let pdfData = [self.resourceUrl(forFileName: filename)]
-        let vc = UIActivityViewController(activityItems: pdfData, applicationActivities: nil)
+        let vc = UIActivityViewController(activityItems: pdfData as [Any], applicationActivities: nil)
         present(vc, animated: true)
     }
     
