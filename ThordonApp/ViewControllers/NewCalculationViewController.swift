@@ -8,6 +8,7 @@
 
 import UIKit
 import Socket
+import Foundation
 
 
 class NewCalculationViewController: UIViewController, StreamDelegate {
@@ -15,49 +16,38 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     
     var imageData = Data()
     
+    
     @IBAction func reloadPhoto(_ sender: Any) {
         
-        
-        let user = Message(command: "send_view", x: "-1", y: "-1", userId: "123", direction: "iOS")
-        let jsonData = try! JSONEncoder().encode(user)
-        let jsonString = String(data: jsonData, encoding: .utf8)!
         
         
         self.networkManager.createSocket()
         self.networkManager.connect()
-        //        networkManager.sendMessage(message: jsonString)
-        self.networkManager.sendMessage(message: "haha")
         
-        var imageBufferSize = self.networkManager.readData()
+        getInitialWindow()
+        
+//        print(jsonString.count * MemoryLayout.stride(ofValue: jsonString))
+
+        
+        
+        
+        let imageBufferSize = self.networkManager.readData()
         let bytesArray = ([UInt8])(imageBufferSize)
         let data = Data(_: bytesArray)
         let bufferSizeInteger = UInt32(bigEndian: data.withUnsafeBytes { $0.pointee })
         print(bufferSizeInteger)
         print("Bytesarray ma length: \(bytesArray.count)" )
+        print(bytesArray)
         
+    
         
-//        self.imageData = self.networkManager.readImage(sizeOfBuffer: bufferSizeInteger)
-        self.imageData = self.networkManager.naszaMetodaZwracajacaData(expectedSize: Int(bufferSizeInteger))
+        self.imageData = self.networkManager.readImage(expectedSize: Int(bufferSizeInteger))
         print("odebralem: \(imageData.count)")
         
         print("Po parsie: \([UInt8](imageData).count)")
         
         self.decodeImage(from: imageData)
         self.networkManager.closeSocket()
-        
-        
-        //            let imageData = self.networkManager.readImage(sizeOfBuffer: bufferSizeInteger)
-        //            self.imageData = imageData
-        //            self.decodeImage(from: self.imageData)
-        //            print(imageData.count)
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
     struct Message: Codable {
@@ -76,9 +66,6 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New Calculation"
-        
-        
-        
     }
     
     @IBOutlet weak var imageRead: UIImageView!
@@ -95,22 +82,34 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
             let positionY = Double(position.y)
             let positionToPrint = "X: \(positionX) Y: \(positionY)"
             print(positionToPrint)
+            let positionInJSON = Message(command: "click", x: "\(positionX)", y: "\(positionY)", userId: "123", direction: "iOS")
+            let jsonData = try! JSONEncoder().encode(positionInJSON)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            networkManager.send(message: jsonString)
         }
     }
-    //    func decodeImage(imageAsString: String){
-    //        let newImageData = Data(base64Encoded: imageAsString)
-    //        if newImageData != nil {
-    //            imageRead.image = UIImage(data: newImageData!)
-    //        }
-    //        else {
-    //            print("Didn't receive any image")
-    //        }
-    //    }
     
     func decodeImage(from: Data){
         print("Kiedy tworze foto, data ma wielkosc: \(from.count)\n"  )
         let imageCreated = UIImage(data: from)
         imageRead.image = imageCreated
+    }
+    
+    func getInitialWindow() {
+        print("Initiating initial window for Thordon App")
+        
+        let user = Message(command: "send_view", x: "-1", y: "-1", userId: "123", direction: "iOS")
+        let jsonData = try! JSONEncoder().encode(user)
+        self.jsonString = String(data: jsonData, encoding: .utf8)!
+        
+        let jsonLength = UInt32(jsonString.count)
+        let array = withUnsafeBytes(of: jsonLength.bigEndian, Array.init)
+    
+        let lengthAsData = Data.init(bytes: array, count: 4)
+        print(lengthAsData)
+        self.networkManager.send(data: lengthAsData)
+        
+        self.networkManager.send(message: jsonString)
     }
     
     

@@ -18,7 +18,6 @@ class NetworkManager: NSObject {
         
         do {
             mySocket = try Socket.create()
-//            try mySocket?.setBlocking(mode: true)
         }
         catch {
             print("didn't create the socket")
@@ -28,13 +27,14 @@ class NetworkManager: NSObject {
     func connect(){
         do {
             // try mySocket!.connect(to: "25.94.234.108", port: 2137)
-            try mySocket!.connect(to: "192.168.1.6", port: 997)
+            try mySocket?.connect(to: "25.91.167.236",port: 2137)
+//            try mySocket?.connect(to: "25.100.143.116",port: 997)
         }
         catch {
             print("didn't connect")
         }
     }
-    func receiveMessage() -> String? {
+    func readString() -> String? {
         do {
             receivedMessage = try mySocket!.readString()!
             return receivedMessage
@@ -54,20 +54,9 @@ class NetworkManager: NSObject {
         }
         return receivedData
     }
-    func readImage(sizeOfBuffer: UInt32) -> Data {
-        var receivedData = Data.init(capacity: Int(sizeOfBuffer))
-        do {
-            try mySocket?.read(into: &receivedData)
-        }
-        catch {
-            print("Error receiving data")
-        }
-        return receivedData
-    }
-    func naszaMetodaZwracajacaData(expectedSize: Int) -> Data {
+    func readImage(expectedSize: Int) -> Data {
         var sum = 0
         var receivedData = Data.init()
-        var buffer = Data.init()
         while (sum != expectedSize) {
             do {
                 if let x = try mySocket?.read(into: &receivedData) {
@@ -94,16 +83,36 @@ class NetworkManager: NSObject {
         }
         return receivedData
     }
-    func sendMessage(message:String){
+//    func sendMessage(message:String){
+//        let message = "\(message)\r\n"
+//        do {
+//            try self.mySocket?.write(from: message)
+//        }
+//        catch {
+//            print("didn't send the message")
+//        }
+//    }
+    func send(message:String){
+        let message = "\(message)\r\n"
+        let data = Data(message.utf8)
         do {
-            //            connect()
-            try self.mySocket?.write(from: message)
+            try self.mySocket?.write(from: data)
         }
         catch {
             print("didn't send the message")
         }
-        
     }
+    func send(data:Data){
+        do {
+            try self.mySocket?.write(from: data)
+        }
+        catch {
+            print("didn't send the message")
+        }
+    }
+    
+    
+    
     func closeSocket(){
         mySocket?.close()
     }

@@ -17,11 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-dC-Ysv" userLabel="imageRead">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-dC-Ysv" userLabel="imageRead">
                                 <rect key="frame" x="0.0" y="272.66666666666663" width="414" height="350.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Et4-dC-Ysv" secondAttribute="height" multiplier="683:579" id="KCN-Wo-h4y"/>
-                                    <constraint firstAttribute="width" constant="414" id="YbE-fo-jVU"/>
+                                    <constraint firstAttribute="width" constant="414" id="YbE-fo-jVU">
+                                        <variation key="heightClass=compact-widthClass=regular" constant="300"/>
+                                    </constraint>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -35,7 +37,7 @@
                     <navigationItem key="navigationItem" id="UuN-Yf-TZV">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="QYx-Ls-f1X">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="giO-OO-dry">
-                                <rect key="frame" x="184" y="717" width="46" height="30"/>
+                                <rect key="frame" x="348" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -478,6 +480,7 @@
     </scenes>
     <resources>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="foto" width="680" height="510"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
