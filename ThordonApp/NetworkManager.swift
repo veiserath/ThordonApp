@@ -26,8 +26,8 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            // try mySocket!.connect(to: "25.94.234.108", port: 2137)
             try mySocket?.connect(to: "25.91.167.236",port: 2137)
+            
 //            try mySocket?.connect(to: "25.100.143.116",port: 997)
         }
         catch {
@@ -79,7 +79,7 @@ class NetworkManager: NSObject {
         do {
             try mySocket?.write(from: "OK")
         } catch {
-            print("Didnt send confirmation")
+            print("Didnt send OK")
         }
         return receivedData
     }
