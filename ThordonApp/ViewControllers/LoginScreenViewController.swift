@@ -16,9 +16,7 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func loginButtonIsClicked(_ sender: Any) {
-        if loginTextField.text != nil && passwordTextField.text != nil{
-            LoginCredentials.init(login: loginTextField.text!, password: passwordTextField.text!)
-        }
+        
     }
     
     override func viewDidLoad() {

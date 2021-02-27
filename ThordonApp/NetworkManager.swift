@@ -26,28 +26,16 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            try mySocket?.connect(to: "25.91.167.236",port: 2137)
-            
-//            try mySocket?.connect(to: "25.100.143.116",port: 997)
+            try mySocket?.connect(to: "192.168.0.104",port: 997)
         }
         catch {
             print("didn't connect")
         }
     }
-    func readString() -> String? {
-        do {
-            receivedMessage = try mySocket!.readString()!
-            return receivedMessage
-        }
-        catch {
-            print("didn't receive message")
-        }
-        return nil
-    }
     func readData() -> Data {
         var receivedData = Data.init()
         do {
-            try mySocket?.read(into: &receivedData)
+            _ = try mySocket?.read(into: &receivedData)
         }
         catch {
             print("Error receiving data")
@@ -60,7 +48,6 @@ class NetworkManager: NSObject {
         while (sum != expectedSize) {
             do {
                 if let x = try mySocket?.read(into: &receivedData) {
-                    print("chunki junkie: \(x)")
                     if x <= 0 {
                         break
                     }
@@ -72,7 +59,7 @@ class NetworkManager: NSObject {
                 }
             }
             catch {
-                print("Doooopa")
+                print("Error reading junks")
                 break
             }
         }
@@ -83,15 +70,7 @@ class NetworkManager: NSObject {
         }
         return receivedData
     }
-//    func sendMessage(message:String){
-//        let message = "\(message)\r\n"
-//        do {
-//            try self.mySocket?.write(from: message)
-//        }
-//        catch {
-//            print("didn't send the message")
-//        }
-//    }
+    
     func send(message:String){
         let message = "\(message)\r\n"
         let data = Data(message.utf8)
@@ -110,9 +89,6 @@ class NetworkManager: NSObject {
             print("didn't send the message")
         }
     }
-    
-    
-    
     func closeSocket(){
         mySocket?.close()
     }

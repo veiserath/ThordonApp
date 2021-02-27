@@ -54,15 +54,10 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="UuN-Yf-TZV">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="QYx-Ls-f1X">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="giO-OO-dry">
-                                <rect key="frame" x="958" y="10" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="reloadPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xIf-6s-Gr6"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="8H7-6D-tpL">
+                            <connections>
+                                <action selector="reloadPhoto:" destination="BYZ-38-t0r" id="WoW-sV-ZT9"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -499,6 +494,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
         <image name="foto" width="680" height="510"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

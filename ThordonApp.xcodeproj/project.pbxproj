@@ -10,7 +10,6 @@
 		7A0F65122537580E00475FCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0F65112537580D00475FCE /* Main.storyboard */; };
 		7A92BA0C25D99B170077E4DD /* dummyImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A92BA0B25D99B170077E4DD /* dummyImage.png */; };
 		7AA064D82555677400EDCFBD /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA064D72555677400EDCFBD /* LoginScreenViewController.swift */; };
-		7AA064DC255583B700EDCFBD /* LoginCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA064DB255583B700EDCFBD /* LoginCredentials.swift */; };
 		E70CAE0D2501127E00D5A8B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE0C2501127E00D5A8B9 /* AppDelegate.swift */; };
 		E70CAE0F2501127E00D5A8B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE0E2501127E00D5A8B9 /* SceneDelegate.swift */; };
 		E70CAE112501127E00D5A8B9 /* NewCalculationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70CAE102501127E00D5A8B9 /* NewCalculationViewController.swift */; };
@@ -30,7 +29,6 @@
 		7A0F65112537580D00475FCE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7A92BA0B25D99B170077E4DD /* dummyImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dummyImage.png; sourceTree = "<group>"; };
 		7AA064D72555677400EDCFBD /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
-		7AA064DB255583B700EDCFBD /* LoginCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCredentials.swift; sourceTree = "<group>"; };
 		E70CAE092501127E00D5A8B9 /* ThordonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThordonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E70CAE0C2501127E00D5A8B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E70CAE0E2501127E00D5A8B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				7AA064D72555677400EDCFBD /* LoginScreenViewController.swift */,
-				7AA064DB255583B700EDCFBD /* LoginCredentials.swift */,
 				E70CAE102501127E00D5A8B9 /* NewCalculationViewController.swift */,
 				E76FC7652505A4320074A7C2 /* ResultsViewController.swift */,
 				E79033E3250981C5000D72CE /* PDFViewController.swift */,
@@ -203,7 +200,6 @@
 				E70CAE0F2501127E00D5A8B9 /* SceneDelegate.swift in Sources */,
 				E7B8922B252CBDF900EE03DE /* NetworkManager.swift in Sources */,
 				7AA064D82555677400EDCFBD /* LoginScreenViewController.swift in Sources */,
-				7AA064DC255583B700EDCFBD /* LoginCredentials.swift in Sources */,
 				E74B8EF7250252AB00B847CA /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
