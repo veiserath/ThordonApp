@@ -26,13 +26,13 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            try mySocket?.connect(to: "192.168.0.104",port: 997)
+            try mySocket?.connect(to: "192.168.1.203",port: 997)
         }
         catch {
             print("didn't connect")
         }
     }
-    func readData() -> Data {
+    func readBufferSize() -> Data {
         var receivedData = Data.init()
         do {
             _ = try mySocket?.read(into: &receivedData)
@@ -42,7 +42,7 @@ class NetworkManager: NSObject {
         }
         return receivedData
     }
-    func readImage(expectedSize: Int) -> Data {
+    func readLosslessData(expectedSize: Int) -> Data {
         var sum = 0
         var receivedData = Data.init()
         while (sum != expectedSize) {

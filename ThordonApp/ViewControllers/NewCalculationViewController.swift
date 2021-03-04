@@ -26,6 +26,8 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     let networkManager = NetworkManager()
     var touchPosition: String = ""
     
+    var isReady = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +35,12 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     }
     
     @IBAction func reloadPhoto(_ sender: Any) {
+
         self.refreshView()
     }
     
     func refreshView() {
+        
         self.networkManager.createSocket()
         self.networkManager.connect()
         
@@ -52,10 +56,8 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         self.networkManager.send(message: jsonString)
         
         self.downloadImage()
-        self.networkManager.closeSocket()
-        
+
     }
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +69,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
             //            tutaj switch case
             if inputValueTextField.text != "" {
                 self.fillData(touch: touch)
+                inputValueTextField.text = ""
             } else {
                 self.click(touch: touch)
             }
@@ -81,6 +84,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         let positionX = Int(position.x)
         let positionY = Int(position.y)
         let positionInJSON = Message(command: "fill:\(inputValueTextField.text!)", x: "\(positionX)", y: "\(positionY)", userId: "123", direction: "iOS")
+        
         let jsonData = try! JSONEncoder().encode(positionInJSON)
         let jsonString = String(data: jsonData, encoding: .utf8)!
         
@@ -92,7 +96,6 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         self.networkManager.send(data: lengthAsData)
         self.networkManager.send(message: jsonString)
         downloadImage()
-        self.networkManager.closeSocket()
     }
     
     func click(touch:UITouch) {
@@ -113,21 +116,24 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         
         self.networkManager.send(data: lengthAsData)
         self.networkManager.send(message: jsonString)
+        
         downloadImage()
-
-        self.networkManager.closeSocket()
+        
     }
     
-    func downloadImage() {
-        let imageBufferSize = self.networkManager.readData()
-        let bytesArray = ([UInt8])(imageBufferSize)
-        let data = Data(_: bytesArray)
-//        before refactoring
-//        let bufferSizeInteger = UInt32(bigEndian: data.withUnsafeBytes { $0.pointee })
-//        after refactoring
-        let bufferSizeInteger = data.withUnsafeBytes { $0.load(as: UInt32.self) }
-        let imageData = self.networkManager.readImage(expectedSize: Int(bufferSizeInteger))
-        self.decodeImage(from: imageData)
+    @objc func downloadImage() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let imageBufferSize = self.networkManager.readBufferSize()
+            let bytesArray = ([UInt8])(imageBufferSize)
+            let data = Data(_: bytesArray)
+            let bufferSizeInteger = data.withUnsafeBytes { $0.load(as: UInt32.self) }
+            let imageData = self.networkManager.readLosslessData(expectedSize: Int(bufferSizeInteger))
+            
+            DispatchQueue.main.async {
+                self.decodeImage(from: imageData)
+                self.networkManager.closeSocket()
+            }
+        }
     }
     func decodeImage(from: Data){
         let imageCreated = UIImage(data: from)
