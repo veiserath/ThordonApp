@@ -26,7 +26,7 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            try mySocket?.connect(to: "192.168.1.203",port: 997)
+            try mySocket?.connect(to: "25.91.167.236",port: 2137)
         }
         catch {
             print("didn't connect")

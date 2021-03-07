@@ -23,6 +23,10 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     
     @IBOutlet weak var inputValueTextField: UITextField!
     @IBOutlet weak var imageRead: UIImageView!
+    
+    @IBOutlet weak var imageLoadingSpinner: UIActivityIndicatorView!
+    
+    
     let networkManager = NetworkManager()
     var touchPosition: String = ""
     
@@ -32,14 +36,17 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New Calculation"
+        refreshView()
+        
     }
     
     @IBAction func reloadPhoto(_ sender: Any) {
-
         self.refreshView()
     }
     
     func refreshView() {
+        imageLoadingSpinner.hidesWhenStopped = true
+        imageLoadingSpinner.startAnimating()
         
         self.networkManager.createSocket()
         self.networkManager.connect()
@@ -56,17 +63,17 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         self.networkManager.send(message: jsonString)
         
         self.downloadImage()
-
+        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
-        
+//        refreshView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            //            tutaj switch case
+            // switch case?
             if inputValueTextField.text != "" {
                 self.fillData(touch: touch)
                 inputValueTextField.text = ""
@@ -95,6 +102,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         
         self.networkManager.send(data: lengthAsData)
         self.networkManager.send(message: jsonString)
+        
         downloadImage()
     }
     
@@ -116,26 +124,28 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         
         self.networkManager.send(data: lengthAsData)
         self.networkManager.send(message: jsonString)
-        
+
         downloadImage()
         
     }
     
-    @objc func downloadImage() {
+    func downloadImage() {
         DispatchQueue.global(qos: .userInitiated).async {
             let imageBufferSize = self.networkManager.readBufferSize()
             let bytesArray = ([UInt8])(imageBufferSize)
             let data = Data(_: bytesArray)
-            let bufferSizeInteger = data.withUnsafeBytes { $0.load(as: UInt32.self) }
+            let bufferSizeInteger = data.withUnsafeBytes { $0.load(as: UInt32.self)}
             let imageData = self.networkManager.readLosslessData(expectedSize: Int(bufferSizeInteger))
-            
+            self.networkManager.closeSocket()
             DispatchQueue.main.async {
-                self.decodeImage(from: imageData)
-                self.networkManager.closeSocket()
+                self.imageLoadingSpinner.stopAnimating()
+                self.setImage(from: imageData)
             }
         }
     }
-    func decodeImage(from: Data){
+    
+    
+    func setImage(from: Data){
         let imageCreated = UIImage(data: from)
         imageRead.image = imageCreated
     }

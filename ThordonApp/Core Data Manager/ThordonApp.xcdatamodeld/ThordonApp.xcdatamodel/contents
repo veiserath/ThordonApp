@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D80" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="GeneralInformation" representedClassName="GeneralInformation" syncable="YES" codeGenerationType="class">
         <attribute name="calculatedBy" optional="YES" attributeType="String"/>
         <attribute name="checkedBy" optional="YES" attributeType="String"/>
@@ -7,10 +7,11 @@
         <attribute name="customer" optional="YES" attributeType="String"/>
         <attribute name="drawingNumber" optional="YES" attributeType="String"/>
         <attribute name="mrpNumber" optional="YES" attributeType="String"/>
+        <attribute name="pdf" optional="YES" attributeType="Binary"/>
         <attribute name="projectReference" optional="YES" attributeType="String"/>
         <attribute name="thordonDistributor" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="GeneralInformation" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="GeneralInformation" positionX="-63" positionY="-18" width="128" height="164"/>
     </elements>
 </model>

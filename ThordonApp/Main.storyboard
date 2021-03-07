@@ -17,22 +17,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-dC-Ysv" userLabel="imageRead">
-                                <rect key="frame" x="172" y="129" width="680" height="510"/>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="683" placeholderIntrinsicHeight="579" translatesAutoresizingMaskIntoConstraints="NO" id="Et4-dC-Ysv" userLabel="imageRead">
+                                <rect key="frame" x="170.5" y="94.5" width="683" height="579"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type here..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGZ-Yz-TaV">
-                                <rect key="frame" x="460" y="60" width="104.5" height="34"/>
+                                <rect key="frame" x="460" y="55" width="104.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JJS-JO-54q">
+                                <rect key="frame" x="493.5" y="365.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Et4-dC-Ysv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G8g-Wd-zwW"/>
                             <constraint firstItem="gGZ-Yz-TaV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="O5h-mB-rVG"/>
-                            <constraint firstItem="gGZ-Yz-TaV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="YwL-Ia-8Gl"/>
-                            <constraint firstItem="Et4-dC-Ysv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jJh-yE-aDg"/>
+                            <constraint firstItem="JJS-JO-54q" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="U5c-vk-dTf"/>
+                            <constraint firstItem="JJS-JO-54q" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VRM-Uj-OTN"/>
+                            <constraint firstItem="gGZ-Yz-TaV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="YwL-Ia-8Gl"/>
+                            <constraint firstItem="Et4-dC-Ysv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="h1y-vV-lHl"/>
+                            <constraint firstItem="Et4-dC-Ysv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wWx-5Z-lWo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -61,6 +66,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageLoadingSpinner" destination="JJS-JO-54q" id="Tdg-OG-evk"/>
                         <outlet property="imageRead" destination="Et4-dC-Ysv" id="892-XI-84U"/>
                         <outlet property="inputValueTextField" destination="gGZ-Yz-TaV" id="BRI-Z5-BmE"/>
                     </connections>
@@ -496,7 +502,6 @@
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
-        <image name="foto" width="680" height="510"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
