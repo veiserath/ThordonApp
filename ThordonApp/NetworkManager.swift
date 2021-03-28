@@ -26,7 +26,11 @@ class NetworkManager: NSObject {
     
     func connect(){
         do {
-            try mySocket?.connect(to: "25.91.167.236",port: 2137)
+//            tata
+//            try mySocket?.connect(to: "25.91.167.236",port: 2137)
+            
+//            try mySocket?.connect(to: "192.168.1.203",port: 2137)
+            try mySocket?.connect(to: "192.168.1.12",port: 2137)
         }
         catch {
             print("didn't connect")
@@ -72,6 +76,7 @@ class NetworkManager: NSObject {
     }
     
     func send(message:String){
+        
         let message = "\(message)\r\n"
         let data = Data(message.utf8)
         do {

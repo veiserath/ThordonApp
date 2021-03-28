@@ -21,6 +21,23 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         var direction: String
     }
     
+    struct GeneralInfo: Codable {
+        var thordonDistributor: String
+        var customer: String
+        var projectReference: String
+        var calculatedBy: String
+        var checkedBy: String
+        var comments: String
+        var drawingNumber: String
+        var MRPNumber: String
+    }
+    
+    
+    @IBAction func sendGeneralInfo(_ sender: Any) {
+        sendGeneralInfo()
+    }
+    
+    
     @IBOutlet weak var inputValueTextField: UITextField!
     @IBOutlet weak var imageRead: UIImageView!
     
@@ -36,7 +53,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "New Calculation"
-        refreshView()
+//        refreshView()
         
     }
     
@@ -45,6 +62,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
     }
     
     func refreshView() {
+        
         imageLoadingSpinner.hidesWhenStopped = true
         imageLoadingSpinner.startAnimating()
         
@@ -58,6 +76,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         let jsonLength = UInt32(jsonString.count)
         let array = withUnsafeBytes(of: jsonLength.bigEndian, Array.init)
         let lengthAsData = Data.init(bytes: array, count: 4)
+        
         
         self.networkManager.send(data: lengthAsData)
         self.networkManager.send(message: jsonString)
@@ -128,6 +147,30 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         downloadImage()
         
     }
+    func sendGeneralInfo() {
+        self.networkManager.createSocket()
+        self.networkManager.connect()
+        
+        let info = "thordon1(. Y .)thordon2(. Y .)thordon3(. Y .)thordon4(. Y .)thordon5(. Y .)thordon6(. Y .)thordon7(. Y .)thordon8"
+        
+        print("GENERAL INFO:")
+        
+        let command = "general-info:\(info)"
+
+        
+        let message = Message(command: command, x: "-1", y: "-1", userId: "123", direction: "iOS")
+        
+        let jsonData = try! JSONEncoder().encode(message)
+        let jsonString = String(data: jsonData, encoding: .utf8)!
+        print(jsonString)
+        
+        let jsonLength = UInt32(jsonString.count)
+        let array = withUnsafeBytes(of: jsonLength.bigEndian, Array.init)
+        let lengthAsData = Data.init(bytes: array, count: 4)
+        
+        self.networkManager.send(data: lengthAsData)
+        self.networkManager.send(message: jsonString)
+    }
     
     func downloadImage() {
         DispatchQueue.global(qos: .userInitiated).async {
@@ -149,5 +192,7 @@ class NewCalculationViewController: UIViewController, StreamDelegate {
         let imageCreated = UIImage(data: from)
         imageRead.image = imageCreated
     }
+    
+    
     
 }

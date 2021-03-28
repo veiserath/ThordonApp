@@ -28,6 +28,14 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="JJS-JO-54q">
                                 <rect key="frame" x="493.5" y="365.5" width="37" height="37"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bih-tX-VmV">
+                                <rect key="frame" x="918" y="152" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendGeneralInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cTU-3V-rGO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,6 +67,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="UuN-Yf-TZV">
+                        <barButtonItem key="leftBarButtonItem" image="icloud.and.arrow.down" catalog="system" id="xT4-UU-XpA" userLabel="DownloadPDF">
+                            <connections>
+                                <segue destination="ZCK-qZ-Lip" kind="show" id="caZ-7l-ecd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="8H7-6D-tpL">
                             <connections>
                                 <action selector="reloadPhoto:" destination="BYZ-38-t0r" id="WoW-sV-ZT9"/>
@@ -499,9 +512,13 @@
             <point key="canvasLocation" x="5719" y="104"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="caZ-7l-ecd"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="doc.text.fill" catalog="system" width="115" height="128"/>
+        <image name="icloud.and.arrow.down" catalog="system" width="128" height="112"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="tray.full.fill" catalog="system" width="128" height="88"/>
